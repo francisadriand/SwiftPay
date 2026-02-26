@@ -45,9 +45,11 @@ async function loadLogs() {
     const date = data.timestamp?.toDate();
     const formattedDate = date ? date.toLocaleString() : "N/A";
 
+    const id = docSnap.id;
+
     table.innerHTML += `
         <tr>
-        <td>${docSnap.id}</td>
+        <td>${id}</td>
         <td>${sender}</td>
         <td>${receiver}</td>
         <td>$${(data.amount ?? 0).toFixed(2)}</td>
