@@ -39,19 +39,22 @@ async function loadLogs() {
   snapshot.forEach((docSnap) => {
     const data = docSnap.data();
 
-    const date = data.Timestamp?.toDate();
+    const sender = data.senderID ?? data.SenderID ?? "N/A";
+    const receiver = data.receiverID ?? data.ReceiverID ?? "N/A";
+
+    const date = data.timestamp?.toDate();
     const formattedDate = date ? date.toLocaleString() : "N/A";
 
     table.innerHTML += `
-      <tr>
+        <tr>
         <td>${docSnap.id}</td>
-        <td>${data.SenderID}</td>
-        <td>${data.ReceiverID}</td>
-        <td>$${data.Amount.toFixed(2)}</td>
+        <td>${sender}</td>
+        <td>${receiver}</td>
+        <td>$${(data.amount ?? 0).toFixed(2)}</td>
         <td>${formattedDate}</td>
-      </tr>
+        </tr>
     `;
-  });
+    });
 }
 
 loadLogs();
