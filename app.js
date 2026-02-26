@@ -33,7 +33,7 @@ async function loadAccounts() {
     const data = docSnap.data();
     table.innerHTML += `
       <tr>
-        <td>${docSnap.id}</td>
+        <td>${docSnap.ID}</td>
         <td>${data.Username}</td>
         <td>$${data.Balance.toFixed(2)}</td>
       </tr>
@@ -175,3 +175,4 @@ window.bonusTransfer = async function () {
   location.reload();
 
 };
+
