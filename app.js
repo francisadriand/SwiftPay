@@ -27,15 +27,28 @@ const db = getFirestore(app);
 
 async function loadAccounts() {
   const table = document.getElementById("accountsTable");
-  const snapshot = await getDocs(collection(db, "Accounts"));
+
+  // Clear table except header
+  table.innerHTML = `
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Balance</th>
+    </tr>
+  `;
+
+  const snapshot = await getDocs(collection(db, "accounts"));
 
   snapshot.forEach((docSnap) => {
     const data = docSnap.data();
+
+    const id = docSnap.id; // THIS is the correct ID
+
     table.innerHTML += `
       <tr>
-        <td>${docSnap.id}</td>
-        <td>${data.Username}</td>
-        <td>$${data.Balance.toFixed(2)}</td>
+        <td>${id}</td>
+        <td>${data.username || "No Name"}</td>
+        <td>$${(data.balance ?? 0).toFixed(2)}</td>
       </tr>
     `;
   });
@@ -175,5 +188,6 @@ window.bonusTransfer = async function () {
   location.reload();
 
 };
+
 
 
