@@ -32,8 +32,8 @@ async function loadAccounts() {
   table.innerHTML = `
     <tr>
       <th>ID</th>
-      <th>Username</th>
-      <th>Balance</th>
+      <th>username</th>
+      <th>balance</th>
     </tr>
   `;
 
@@ -188,6 +188,7 @@ window.bonusTransfer = async function () {
   location.reload();
 
 };
+
 
 
 
