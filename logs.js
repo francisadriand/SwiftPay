@@ -46,13 +46,14 @@ async function loadLogs() {
     const formattedDate = date ? date.toLocaleString() : "N/A";
 
     const id = docSnap.id;
+    const amount = data.amount ?? data.Amount ?? 0;
 
     table.innerHTML += `
         <tr>
         <td>${id}</td>
         <td>${sender}</td>
         <td>${reciever}</td>
-        <td>$${(data.amount ?? 0).toFixed(2)}</td>
+        <td>$${(amount).toFixed(2)}</td>
         <td>${formattedDate}</td>
         </tr>
     `;
@@ -60,3 +61,4 @@ async function loadLogs() {
 }
 
 loadLogs();
+
