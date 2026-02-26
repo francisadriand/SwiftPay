@@ -40,9 +40,9 @@ async function loadLogs() {
     const data = docSnap.data();
 
     const sender = data.senderID ?? data.SenderID ?? "N/A";
-    const receiver = data.receiverID ?? data.ReceiverID ?? "N/A";
+    const reciever = data.recieverID ?? data.RecieverID ?? "N/A";
 
-    const date = data.timestamp?.toDate();
+    const date = data.Timestamp?.toDate();
     const formattedDate = date ? date.toLocaleString() : "N/A";
 
     const id = docSnap.id;
@@ -51,7 +51,7 @@ async function loadLogs() {
         <tr>
         <td>${id}</td>
         <td>${sender}</td>
-        <td>${receiver}</td>
+        <td>${reciever}</td>
         <td>$${(data.amount ?? 0).toFixed(2)}</td>
         <td>${formattedDate}</td>
         </tr>
