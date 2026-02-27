@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SwiftPay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header> 
+        <a href="index.html">SwiftPay</a> 
+        <a href="transactionlogs.html">Transaction Logs</a> 
+    </header>
+    <div class="main-container">
+        <h1>SwiftPay Accounts</h1>
+        <table id="accountsTable">
+        </table>
+    </div>
+
+    <hr>
+
+    <h2>Basic Transfer (Phase 1)</h2>
+    <input type="text" id="sender1" placeholder="Sender ID">
+    <input type="text" id="receiver1" placeholder="Receiver ID">
+    <input type="number" id="amount1" placeholder="Amount" step="0.01">
+    <button onclick="basicTransfer()">Transfer</button>
+
+    <h2>Advanced Transfer (Phase 2)</h2>
+    <input type="text" id="sender2" placeholder="Sender ID">
+    <input type="text" id="receiver2" placeholder="Receiver ID">
+    <input type="number" id="amount2" placeholder="Amount" step="0.01">
+    <button onclick="advancedTransfer()">Transfer</button>
+
+    <h2>Transfer With Bonus (Phase 3)</h2>
+    <input type="text" id="sender3" placeholder="Sender ID">
+    <input type="text" id="receiver3" placeholder="Receiver ID">
+    <input type="number" id="amount3" placeholder="Amount" step="0.01">
+    <button onclick="bonusTransfer()">Transfer</button>
+
+    <script type="module" src="app.js"></script>
+
+</body>
+</html>
