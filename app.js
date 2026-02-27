@@ -54,6 +54,7 @@ async function loadAccounts() {
         </tr>
       `;
     });
+  console.log("Snapshot size:", snapshot.size);
   }
   catch (error)
   {
@@ -64,7 +65,6 @@ async function loadAccounts() {
 
 console.log("Loading accounts...");
 loadAccounts();
-console.log("Snapshot size:", snapshot.size);
 
 // ============================
 // PHASE 1 - Basic Transfer
@@ -196,5 +196,6 @@ window.bonusTransfer = async function () {
 
   alert("Transfer successful!");
   location.reload();
+
 
 };
